@@ -1,0 +1,12 @@
+linters:
+  eslint:
+    config: .eslintrc.js
+    fixer: true
+
+files:
+  ignore:
+    - ./dits/*
+    - .eslintrc.js
+
+fixers:
+  enable: true

@@ -1,0 +1,28 @@
+{
+  "name": "simple-restaurant-page",
+  "version": "1.0.0",
+  "description": "Simple single-page application dynamically rendered for a restaurant.",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --fix src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MauricioRobayo/simple-restaurant-page.git"
+  },
+  "keywords": [],
+  "author": "Mauricio Robayo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MauricioRobayo/simple-restaurant-page/issues"
+  },
+  "homepage": "https://mauriciorobayo.github.io/simple-restaurant-page",
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-import": "^2.18.2",
+    "prettier": "^1.18.2"
+  }
+}

@@ -7,7 +7,11 @@ module.exports = {
     filename: 'main.[contentHash].js',
     path: path.resolve(__dirname, 'dist'),
   },
-  plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+    }),
+  ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
   },

@@ -5,8 +5,8 @@ linters:
 
 files:
   ignore:
-    - ./dits/*
     - .eslintrc.js
+    - dits/*
 
 fixers:
   enable: true

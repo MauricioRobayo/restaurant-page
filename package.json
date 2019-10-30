@@ -7,7 +7,7 @@
     "lint": "eslint --fix src",
     "prettier": "prettier --write \"./**/*.{js,jsx,json}\"",
     "build": "webpack --mode=production",
-    "start:dev": "webpack-dev-server"
+    "start": "webpack-dev-server"
   },
   "repository": {
     "type": "git",

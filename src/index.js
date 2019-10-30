@@ -1,3 +1,3 @@
-import "./style.scss";
+import './style.scss'
 
-document.querySelector("#content").textContent = "Hello, world!";
+document.querySelector('#content').textContent = 'Hello, world!'

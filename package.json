@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "lint": "eslint --fix src",
+    "prettier": "prettier --write \"./**/*.{js,jsx,json}\"",
     "build": "webpack --mode=production",
     "start:dev": "webpack-dev-server"
   },

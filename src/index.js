@@ -1,3 +1,4 @@
 import './style.scss'
+import mainPage from './js/initial_page'
 
-document.querySelector('#content').textContent = 'Hello, world!'
+mainPage()

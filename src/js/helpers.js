@@ -10,12 +10,11 @@ function getBaconImage({ width = 300, height = 200 } = {}) {
   return `https://baconmockup.com/${width}/${height}/random/?${randomNum}`
 }
 
-function getGravatarUrl({ email, size = 24, type = 'identicon' }) {
+function getGravatarUrl({ email, size = 32, type = 'identicon' }) {
   const hash = crypto
     .createHash('md5')
     .update(email)
     .digest('hex')
-  console.log(`https://www.gravatar.com/avatar/${hash}?s=${size}&d=${type}`)
   return `https://www.gravatar.com/avatar/${hash}?s=${size}&d=${type}`
 }
 

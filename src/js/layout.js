@@ -38,7 +38,13 @@ function buildNav(siteInfo, items) {
   const nav = createElement('nav')
   nav.appendChild(fragment)
   nav.addEventListener('click', event => {
+    event.target.parentElement
+      .querySelectorAll('.nav-item')
+      .forEach(navItem => {
+        navItem.classList.remove('active')
+      })
     if (event.target.classList.contains('nav-item')) {
+      event.target.classList.add('active')
       loadContent(siteInfo, event.target.dataset.page)
     }
   })
@@ -46,10 +52,12 @@ function buildNav(siteInfo, items) {
 }
 
 function layout(siteInfo) {
-  const img = createElement('img', { id: 'hero-img' })
-  img.src = getBaconImage({ width: 600, height: 400 })
+  const img = createElement('img')
+  img.src = getBaconImage({ width: 600, height: 300 })
 
   const content = document.querySelector('#content')
+
+  const hero = createElement('div', { id: 'hero' })
 
   const headline = createElement('h2')
   setBaconContent(headline, {
@@ -68,13 +76,14 @@ function layout(siteInfo) {
   const pageContainer = createElement('div', {
     id: 'page-container',
   })
-  content.append(img, headline, copy, nav, pageContainer)
+  hero.append(img, headline, copy)
+  content.append(hero, nav, pageContainer)
 
   const header = createElement('header')
   const logo = createElement('img', {
     id: 'logo',
     alt: 'logo',
-    src: getGravatarUrl({ email: siteInfo.email }),
+    src: getGravatarUrl({ email: siteInfo.email, size: 48 }),
   })
   const title = createElement('h1', {
     id: 'title',

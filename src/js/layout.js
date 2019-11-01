@@ -1,5 +1,9 @@
-import crypto from 'crypto'
-import { getBaconImage, setBaconContent, createElement } from './helpers'
+import {
+  getBaconImage,
+  setBaconContent,
+  createElement,
+  getGravatarUrl,
+} from './helpers'
 import menu from './menu'
 import contact from './contact'
 
@@ -67,14 +71,10 @@ function layout(siteInfo) {
   content.append(img, headline, copy, nav, pageContainer)
 
   const header = createElement('header')
-  const hash = crypto
-    .createHash('md5')
-    .update(siteInfo.email)
-    .digest('hex')
   const logo = createElement('img', {
     id: 'logo',
     alt: 'logo',
-    src: `https://www.gravatar.com/avatar/${hash}?s=64&d=identicon`,
+    src: getGravatarUrl({ email: siteInfo.email }),
   })
   const title = createElement('h1', {
     id: 'title',

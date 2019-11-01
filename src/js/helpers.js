@@ -1,3 +1,5 @@
+import crypto from 'crypto'
+
 function getBaconImage({ width = 300, height = 200 } = {}) {
   // This random number is appended to the request
   // to ensure a new request is made everytime the
@@ -6,6 +8,15 @@ function getBaconImage({ width = 300, height = 200 } = {}) {
   // for the random image url.
   const randomNum = Math.floor(Math.random() * 10000)
   return `https://baconmockup.com/${width}/${height}/random/?${randomNum}`
+}
+
+function getGravatarUrl({ email, size = 24, type = 'identicon' }) {
+  const hash = crypto
+    .createHash('md5')
+    .update(email)
+    .digest('hex')
+  console.log(`https://www.gravatar.com/avatar/${hash}?s=${size}&d=${type}`)
+  return `https://www.gravatar.com/avatar/${hash}?s=${size}&d=${type}`
 }
 
 function setBaconContent(element, options) {
@@ -37,4 +48,4 @@ function createElement(type, options = {}) {
   return element
 }
 
-export { getBaconImage, setBaconContent, createElement }
+export { getBaconImage, setBaconContent, createElement, getGravatarUrl }

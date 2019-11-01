@@ -8,7 +8,7 @@ Simple single-page application dynamically rendered for a restaurant.
 
 [Project description](https://www.theodinproject.com/courses/javascript/lessons/restaurant-page).
 
-[live site](https://mauriciorobayo.github.io/simple-restaurant-page/)
+[Live site](https://mauriciorobayo.github.io/simple-restaurant-page/).
 
 # Credits
 

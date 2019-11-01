@@ -51,6 +51,32 @@ function buildNav(siteInfo, items) {
   return nav
 }
 
+function buildHeader(siteInfo) {
+  const header = createElement('header')
+  const logo = createElement('img', {
+    classes: ['img-rounded'],
+    id: 'logo',
+    alt: 'logo',
+    src: getGravatarUrl({ email: siteInfo.email, size: 48 }),
+  })
+  const title = createElement('h1', {
+    id: 'title',
+    textContent: `${siteInfo.name.last}'s Restaurant`,
+  })
+  header.append(logo, title)
+  return header
+}
+
+function buildFooter() {
+  const footer = createElement('footer')
+  const warning = createElement('a', {
+    href: 'https://github.com/MauricioRobayo/simple-restaurant-page',
+    textContent: 'No APIs were damaged during the build of this site.',
+  })
+  footer.append(warning)
+  return footer
+}
+
 function layout(siteInfo) {
   const img = createElement('img')
   img.src = getBaconImage({ width: 600, height: 300 })
@@ -77,21 +103,7 @@ function layout(siteInfo) {
     id: 'page-container',
   })
   hero.append(img, headline, copy)
-  content.append(hero, nav, pageContainer)
-
-  const header = createElement('header')
-  const logo = createElement('img', {
-    classes: ['img-rounded'],
-    id: 'logo',
-    alt: 'logo',
-    src: getGravatarUrl({ email: siteInfo.email, size: 48 }),
-  })
-  const title = createElement('h1', {
-    id: 'title',
-    textContent: `${siteInfo.name.last}'s Restaurant`,
-  })
-  header.append(logo, title)
-  content.prepend(header)
+  content.append(buildHeader(siteInfo), hero, nav, pageContainer, buildFooter())
 }
 
 export default layout

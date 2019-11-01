@@ -20,7 +20,11 @@ body {
   font-family: sans-serif;
   color: var(--main-color);
 }
-
+#content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 header {
   padding: 1rem 0;
   margin: 0 auto;
@@ -116,9 +120,13 @@ header {
 }
 
 nav {
+  position: sticky;
+  border-bottom: 2px solid var(--main-inverted-color);
+  top: 0;
   background-color: var(--main-background-color);
   font-size: 1.25rem;
   text-align: center;
+  z-index: 3;
   a {
     display: inline-block;
     color: var(--main-inverted-color);
@@ -152,6 +160,18 @@ nav {
   p {
     margin: 0.25rem 0;
   }
+}
+
+footer {
+  margin-top: auto;
+  background-color: var(--main-inverted-color);
+  box-shadow: 0px -4px 4px 0 rgba(0, 0, 0, 0.25);
+  text-align: center;
+  padding: 0.75rem;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  z-index: 3;
 }
 
 .img-rounded {

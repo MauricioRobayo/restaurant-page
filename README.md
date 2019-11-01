@@ -8,9 +8,11 @@ Simple single-page application dynamically rendered for a restaurant.
 
 [Project description](https://www.theodinproject.com/courses/javascript/lessons/restaurant-page).
 
+[live site](https://mauriciorobayo.github.io/simple-restaurant-page/)
+
 # Credits
 
-Images: https://baconmockup.com/
-Text: https://baconipsum.com/
-Contact info: https://randomuser.me/
-Logo: http://en.gravatar.com/
+- Images: https://baconmockup.com/
+- Text: https://baconipsum.com/
+- Contact info: https://randomuser.me/
+- Logo: http://en.gravatar.com/

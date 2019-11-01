@@ -6,7 +6,7 @@ linters:
 files:
   ignore:
     - .eslintrc.js
-    - dits/*
+    - webpack.config.js
 
 fixers:
   enable: true

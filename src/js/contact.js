@@ -8,10 +8,10 @@ function buildLocation(location) {
     state,
     country,
   } = location
-  const street = createElement('div', {
+  const street = createElement('p', {
     textContent: `${number} ${name}`,
   })
-  const fullLocation = createElement('div', {
+  const fullLocation = createElement('p', {
     textContent: `${city}, ${state}, ${country}`,
   })
   fragment.append(street, fullLocation)
@@ -20,28 +20,25 @@ function buildLocation(location) {
 
 function contact(siteInfo) {
   const container = createElement('div', {
-    classes: ['container'],
+    id: 'contact-container',
   })
 
   const image = createElement('img', {
-    src: siteInfo.picture.thumbnail,
+    classes: ['img-rounded'],
+    src: siteInfo.picture.large,
   })
 
-  const name = createElement('div', {
+  const name = createElement('p', {
     id: 'contact-name',
     textContent: Object.values(siteInfo.name).join(' '),
   })
 
-  const email = createElement('div', {
+  const email = createElement('p', {
     textContent: siteInfo.email,
   })
 
-  const phone = createElement('div', {
+  const phone = createElement('p', {
     textContent: siteInfo.phone,
-  })
-
-  const cell = createElement('div', {
-    textContent: siteInfo.cell,
   })
 
   const location = createElement('div', {
@@ -49,7 +46,7 @@ function contact(siteInfo) {
   })
 
   location.appendChild(buildLocation(siteInfo.location))
-  container.append(image, name, location, email, phone, cell)
+  container.append(image, name, location, email, phone)
   return container
 }
 export default contact

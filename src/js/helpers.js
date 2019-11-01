@@ -1,6 +1,6 @@
 import crypto from 'crypto'
 
-function getBaconImage({ width = 300, height = 200 } = {}) {
+function getBaconImage({ width = 320, height = 210 } = {}) {
   // This random number is appended to the request
   // to ensure a new request is made everytime the
   // function is called.

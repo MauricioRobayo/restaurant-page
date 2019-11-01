@@ -1,29 +1,33 @@
-import { getBaconImage, setBaconContent } from './helpers'
+import { getBaconImage, setBaconContent, createElement } from './helpers'
 
 function menu(items) {
-  const fragment = document.createDocumentFragment()
+  const menuContainer = createElement('div', {
+    id: 'menu-container',
+  })
 
   for (let i = 0; i < items; i += 1) {
-    const container = document.createElement('div')
+    const container = createElement('div', {
+      classes: ['menu-item'],
+    })
 
-    const image = document.createElement('img')
+    const image = createElement('img')
     image.src = getBaconImage()
 
-    const title = document.createElement('h2')
+    const title = createElement('h3')
     setBaconContent(title, {
       type: 'all-meat',
       sentences: 1,
     })
 
-    const description = document.createElement('p')
+    const description = createElement('p')
     setBaconContent(description, {
       type: 'meat-and-filler',
       paras: 1,
     })
     container.append(image, title, description)
-    fragment.appendChild(container)
+    menuContainer.appendChild(container)
   }
-  return fragment
+  return menuContainer
 }
 
 export default menu

@@ -81,6 +81,7 @@ function layout(siteInfo) {
 
   const header = createElement('header')
   const logo = createElement('img', {
+    classes: ['img-rounded'],
     id: 'logo',
     alt: 'logo',
     src: getGravatarUrl({ email: siteInfo.email, size: 48 }),

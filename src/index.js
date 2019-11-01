@@ -1,4 +1,8 @@
 import './style.scss'
-import mainPage from './js/initial_page'
+import layout from './js/layout'
 
-mainPage()
+fetch('https://randomuser.me/api/')
+  .then(response => response.json())
+  .then(data => {
+    layout(data.results[0])
+  })

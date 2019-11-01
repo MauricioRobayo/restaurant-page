@@ -21,7 +21,7 @@ function setBaconContent(element, options) {
     })
 }
 
-function createElement(type, options) {
+function createElement(type, options = {}) {
   const element = document.createElement(type)
   Object.keys(options).forEach(key => {
     if (key === 'classes') {

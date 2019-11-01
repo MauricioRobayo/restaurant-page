@@ -1,6 +1,6 @@
 import { getBaconImage, setBaconContent } from './helpers'
 
-function getMenuItems(items) {
+function menu(items) {
   const fragment = document.createDocumentFragment()
 
   for (let i = 0; i < items; i += 1) {
@@ -26,4 +26,4 @@ function getMenuItems(items) {
   return fragment
 }
 
-export default getMenuItems
+export default menu

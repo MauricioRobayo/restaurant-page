@@ -90,7 +90,7 @@ function buildFooter() {
     textContent: 'refresh it',
   })
   footer.append(
-    'New information for this site is fetched everytime you ',
+    'New information for this site is fetched every time you ',
     warning,
     '.'
   )

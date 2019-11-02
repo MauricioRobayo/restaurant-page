@@ -1,4 +1,4 @@
-import { getBaconImage, setBaconContent, createElement } from './helpers'
+import { getImage, setBaconContent, createElement } from './helpers'
 
 function menu(items) {
   const menuContainer = createElement('div', {
@@ -13,7 +13,7 @@ function menu(items) {
     const image = createElement('img', {
       classes: ['background-img'],
     })
-    image.src = getBaconImage()
+    image.src = getImage({ category: 'meal' })
 
     const title = createElement('h3', {
       classes: ['overlay'],

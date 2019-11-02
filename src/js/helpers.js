@@ -1,13 +1,13 @@
 import crypto from 'crypto'
 
-function getBaconImage({ width = 320, height = 210 } = {}) {
+function getImage({ width = 320, height = 210, category = 'food' } = {}) {
   // This random number is appended to the request
   // to ensure a new request is made everytime the
   // function is called.
   // Otherwise the browser gets the image cached
   // for the random image url.
   const randomNum = Math.floor(Math.random() * 10000)
-  return `https://baconmockup.com/${width}/${height}/random/?${randomNum}`
+  return `https://source.unsplash.com/${width}x${height}/?${category}&${randomNum}`
 }
 
 function getGravatarUrl({ email, size = 32, type = 'identicon' }) {
@@ -47,4 +47,4 @@ function createElement(type, options = {}) {
   return element
 }
 
-export { getBaconImage, setBaconContent, createElement, getGravatarUrl }
+export { getImage, setBaconContent, createElement, getGravatarUrl }

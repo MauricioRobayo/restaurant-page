@@ -1,5 +1,5 @@
 import {
-  getBaconImage,
+  getImage,
   setBaconContent,
   createElement,
   getGravatarUrl,
@@ -97,7 +97,7 @@ function layout(siteInfo) {
   const img = createElement('img', {
     classes: ['background-img'],
   })
-  img.src = getBaconImage({ width: 600, height: 300 })
+  img.src = getImage({ width: 600, height: 300, category: 'restaurant' })
 
   const content = document.querySelector('#content')
 

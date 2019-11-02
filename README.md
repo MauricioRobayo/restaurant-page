@@ -12,7 +12,7 @@ Simple single-page application dynamically rendered for a restaurant.
 
 # Credits
 
-- Images: https://baconmockup.com/
+- Images: https://source.unsplash.com/
 - Text: https://baconipsum.com/
 - Contact info: https://randomuser.me/
 - Logo: http://en.gravatar.com/

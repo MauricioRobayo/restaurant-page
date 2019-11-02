@@ -103,7 +103,7 @@ function layout(siteInfo) {
   })
   img.src = getImage({
     width: 600,
-    height: 300,
+    height: 460,
     categories: ['bistro', 'restaurant'],
   })
 

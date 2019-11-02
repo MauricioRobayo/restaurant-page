@@ -86,7 +86,7 @@ function buildHeader(siteInfo) {
 function buildFooter() {
   const footer = createElement('footer')
   const warning = createElement('a', {
-    href: '/',
+    href: './',
     textContent: 'refresh it',
   })
   footer.append(

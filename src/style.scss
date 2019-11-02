@@ -120,6 +120,9 @@ header {
 }
 
 nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: sticky;
   border-bottom: 2px solid var(--main-inverted-color);
   top: 0;
@@ -127,18 +130,18 @@ nav {
   font-size: 1.25rem;
   text-align: center;
   z-index: 3;
-  a {
-    display: inline-block;
-    color: var(--main-inverted-color);
+  color: var(--main-inverted-color);
+  .nav-item-wrapper {
     padding: 1rem;
+    font-weight: bold;
+  }
+  a {
+    font-weight: normal;
+    filter: brightness(0.85);
+    color: var(--main-inverted-color);
     text-decoration: none;
     &:hover {
       text-decoration: underline;
-    }
-    &.active {
-      cursor: default;
-      text-decoration: none;
-      font-weight: bold;
     }
   }
 }

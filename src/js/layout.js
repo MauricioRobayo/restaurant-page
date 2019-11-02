@@ -7,25 +7,14 @@ import {
 import menu from './menu'
 import contact from './contact'
 
-function loadContent(siteInfo, page) {
-  const pageContainer = document.querySelector('#page-container')
-  pageContainer.innerHTML = ''
-  switch (page) {
-    case 'menu':
-      pageContainer.appendChild(menu(3))
-      break
-    case 'contact':
-      pageContainer.appendChild(contact(siteInfo))
-      break
-    default:
-      break
-  }
-}
-
-function buildNav(siteInfo, items) {
-  const fragment = document.createDocumentFragment()
-  items.forEach(item => {
-    const token = item.toLowerCase()
+function buildNavItem(item, selected = '') {
+  const token = item.toLowerCase()
+  const navItemContainer = createElement('div', {
+    classes: ['nav-item-wrapper'],
+  })
+  if (token === selected) {
+    navItemContainer.textContent = item
+  } else {
     const navItem = createElement('a', {
       href: `#${token}`,
       id: `nav-${token}`,
@@ -33,7 +22,15 @@ function buildNav(siteInfo, items) {
       textContent: item,
       classes: ['nav-item'],
     })
-    fragment.appendChild(navItem)
+    navItemContainer.append(navItem)
+  }
+  return navItemContainer
+}
+
+function buildNav(siteInfo, items, selected = '') {
+  const fragment = document.createDocumentFragment()
+  items.forEach(item => {
+    fragment.appendChild(buildNavItem(item, selected))
   })
   const nav = createElement('nav')
   nav.appendChild(fragment)
@@ -45,10 +42,29 @@ function buildNav(siteInfo, items) {
       })
     if (event.target.classList.contains('nav-item')) {
       event.target.classList.add('active')
+      // eslint-disable-next-line no-use-before-define
       loadContent(siteInfo, event.target.dataset.page)
     }
   })
   return nav
+}
+
+function loadContent(siteInfo, page) {
+  const pageContainer = document.querySelector('#page-container')
+  document
+    .querySelector('nav')
+    .replaceWith(buildNav(siteInfo, ['Menu', 'Contact'], page))
+  pageContainer.innerHTML = ''
+  switch (page) {
+    case 'menu':
+      pageContainer.appendChild(menu(3))
+      break
+    case 'contact':
+      pageContainer.appendChild(contact(siteInfo))
+      break
+    default:
+      break
+  }
 }
 
 function buildHeader(siteInfo) {

@@ -57,7 +57,7 @@ function loadContent(siteInfo, page) {
   pageContainer.innerHTML = ''
   switch (page) {
     case 'menu':
-      pageContainer.appendChild(menu(3))
+      pageContainer.appendChild(menu(6))
       break
     case 'contact':
       pageContainer.appendChild(contact(siteInfo))
@@ -101,7 +101,11 @@ function layout(siteInfo) {
   const img = createElement('img', {
     classes: ['background-img'],
   })
-  img.src = getImage({ width: 600, height: 300, category: 'restaurant' })
+  img.src = getImage({
+    width: 600,
+    height: 300,
+    categories: ['bistro', 'restaurant'],
+  })
 
   const content = document.querySelector('#content')
 

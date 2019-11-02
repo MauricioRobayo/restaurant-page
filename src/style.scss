@@ -2,7 +2,7 @@ $break-point: 720px;
 html {
   box-sizing: border-box;
   font-size: 16px;
-  --main-color: #444;
+  --main-color: black;
   --main-inverted-color: white;
   --main-background-color: black;
   @media (min-width: $break-point) {

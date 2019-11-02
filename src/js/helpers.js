@@ -1,13 +1,15 @@
 import crypto from 'crypto'
 
-function getImage({ width = 320, height = 210, category = 'food' } = {}) {
+function getImage({ width = 320, height = 210, categories = [] } = {}) {
   // This random number is appended to the request
   // to ensure a new request is made everytime the
   // function is called.
   // Otherwise the browser gets the image cached
   // for the random image url.
   const randomNum = Math.floor(Math.random() * 10000)
-  return `https://source.unsplash.com/${width}x${height}/?${category}&${randomNum}`
+  return `https://source.unsplash.com/${width}x${height}/?${categories.join(
+    ','
+  )}&${randomNum}`
 }
 
 function getGravatarUrl({ email, size = 32, type = 'identicon' }) {

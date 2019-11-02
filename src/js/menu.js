@@ -13,7 +13,7 @@ function menu(items) {
     const image = createElement('img', {
       classes: ['background-img'],
     })
-    image.src = getImage({ category: 'meal' })
+    image.src = getImage({ categories: ['dish', 'meal'] })
 
     const title = createElement('h3', {
       classes: ['overlay'],

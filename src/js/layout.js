@@ -94,19 +94,28 @@ function buildFooter() {
 }
 
 function layout(siteInfo) {
-  const img = createElement('img')
+  const img = createElement('img', {
+    classes: ['background-img'],
+  })
   img.src = getBaconImage({ width: 600, height: 300 })
 
   const content = document.querySelector('#content')
 
-  const hero = createElement('div', { id: 'hero' })
+  const hero = createElement('div', {
+    id: 'hero',
+    classes: ['img-overlay'],
+  })
 
+  const headlineWrapper = createElement('div', {
+    classes: ['headline', 'overlay'],
+  })
   const headline = createElement('h2')
   setBaconContent(headline, {
     type: 'all-meat',
     sentences: 1,
     'start-with-lorem': 1,
   })
+  headlineWrapper.append(headline)
 
   const copy = createElement('p')
   setBaconContent(copy, {
@@ -118,7 +127,7 @@ function layout(siteInfo) {
   const pageContainer = createElement('div', {
     id: 'page-container',
   })
-  hero.append(img, headline, copy)
+  hero.append(img, headlineWrapper, copy)
   content.append(buildHeader(siteInfo), hero, nav, pageContainer, buildFooter())
 }
 

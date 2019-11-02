@@ -20,7 +20,7 @@ function buildLocation(location) {
 
 function contact(siteInfo) {
   const container = createElement('div', {
-    id: 'contact-container',
+    id: 'contact',
   })
 
   const image = createElement('img', {

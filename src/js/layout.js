@@ -77,7 +77,7 @@ function buildHeader(siteInfo) {
   })
   const title = createElement('h1', {
     id: 'title',
-    textContent: `${siteInfo.name.last}'s Restaurant`,
+    textContent: `${siteInfo.name.last}'s Bistro`,
   })
   header.append(logo, title)
   return header
@@ -86,10 +86,14 @@ function buildHeader(siteInfo) {
 function buildFooter() {
   const footer = createElement('footer')
   const warning = createElement('a', {
-    href: 'https://github.com/MauricioRobayo/simple-restaurant-page',
-    textContent: 'No APIs were damaged during the build of this site.',
+    href: '/',
+    textContent: 'refresh it',
   })
-  footer.append(warning)
+  footer.append(
+    'New information for this site is fetched everytime you ',
+    warning,
+    '.'
+  )
   return footer
 }
 

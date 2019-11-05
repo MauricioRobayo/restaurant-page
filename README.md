@@ -1,6 +1,6 @@
 # Simple Restaurant Page
 
-[![Build Status](https://travis-ci.com/MauricioRobayo/simple-restaurant-page.svg?branch=develop)](https://travis-ci.com/MauricioRobayo/simple-restaurant-page)
+[![Build Status](https://github.com/MauricioRobayo/simple-restaurant-page/workflows/Build%20and%20Deploy/badge.svg)](https://github.com/MauricioRobayo/simple-restaurant-page/actions)
 
 Simple single-page application dynamically rendered for a restaurant.
 

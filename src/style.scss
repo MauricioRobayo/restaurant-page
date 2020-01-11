@@ -27,12 +27,13 @@ body {
 }
 header {
   padding: 1rem 0;
-  margin: 0 auto;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: var(--main-inverted-color);
+  background-color: var(--main-background-color);
   @media (min-width: $break-point) {
     flex-direction: row;
   }

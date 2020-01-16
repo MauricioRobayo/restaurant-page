@@ -5,7 +5,7 @@
 
 ![dining](https://media.giphy.com/media/dsfWYK7zrNRYs/giphy.gif)
 
-Simple single-page application pulling random content from different sources to dynamically render a restaurant page.
+Single-page application pulling random content from different sources to dynamically render a restaurant page.
 
 ## Live Demo
 

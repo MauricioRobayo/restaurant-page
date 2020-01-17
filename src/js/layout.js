@@ -7,12 +7,14 @@ import {
 import menu from './menu'
 import contact from './contact'
 
+const menuItems = ['Menu', 'About', 'Contact']
+
 function buildNavItem(item, selected = '') {
   const token = item.toLowerCase()
   const navItemContainer = createElement('div', {
     classes: ['nav-item-wrapper'],
   })
-  if (token === selected) {
+  if (token === selected.toLowerCase()) {
     navItemContainer.textContent = item
   } else {
     const navItem = createElement('a', {
@@ -49,11 +51,20 @@ function buildNav(siteInfo, items, selected = '') {
   return nav
 }
 
+function about(paras) {
+  const copy = createElement('p', {
+    classes: ['copy'],
+  })
+  setBaconContent(copy, {
+    type: 'meat-and-filler',
+    paras,
+  })
+  return copy
+}
+
 function loadContent(siteInfo, page) {
   const pageContainer = document.querySelector('#page-container')
-  document
-    .querySelector('nav')
-    .replaceWith(buildNav(siteInfo, ['Menu', 'Contact'], page))
+  document.querySelector('nav').replaceWith(buildNav(siteInfo, menuItems, page))
   pageContainer.innerHTML = ''
   switch (page) {
     case 'menu':
@@ -61,6 +72,9 @@ function loadContent(siteInfo, page) {
       break
     case 'contact':
       pageContainer.appendChild(contact(siteInfo))
+      break
+    case 'about':
+      pageContainer.appendChild(about(3))
       break
     default:
       break
@@ -125,19 +139,12 @@ function layout(siteInfo) {
   })
   headlineWrapper.append(headline)
 
-  const copy = createElement('p', {
-    classes: ['copy'],
-  })
-  setBaconContent(copy, {
-    type: 'meat-and-filler',
-    paras: 3,
-  })
-
-  const nav = buildNav(siteInfo, ['Menu', 'Contact'])
+  const menuHTML = menu(12)
+  const nav = buildNav(siteInfo, menuItems, menuItems[0])
   const pageContainer = createElement('div', {
     id: 'page-container',
   })
-  pageContainer.append(copy)
+  pageContainer.append(menuHTML)
   hero.append(buildHeader(siteInfo), img, headlineWrapper)
   content.append(hero, nav, pageContainer, buildFooter())
 }

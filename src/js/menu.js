@@ -11,6 +11,7 @@ function menu(items) {
     })
 
     const image = createElement('img', {
+      loading: 'lazy',
       classes: ['background-img'],
     })
     image.src = getImage({ categories: ['dish', 'meal'] })

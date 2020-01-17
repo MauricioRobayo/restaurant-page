@@ -21,6 +21,6 @@ function loadContent({ aboutParagraphs, menuItems }) {
 }
 
 loadContent({
-  aboutParagraphs: 3,
-  menuItems: 3,
+  aboutParagraphs: 4,
+  menuItems: 12,
 })

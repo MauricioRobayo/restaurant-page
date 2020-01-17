@@ -6,6 +6,7 @@ import {
 } from './helpers'
 import menu from './menu'
 import contact from './contact'
+import about from './about'
 
 const menuItems = ['Menu', 'About', 'Contact']
 
@@ -45,17 +46,6 @@ function buildNav(siteInfo, items, selected = '') {
     }
   })
   return nav
-}
-
-function about(paras) {
-  const copy = createElement('p', {
-    classes: ['copy'],
-  })
-  setBaconContent(copy, {
-    type: 'meat-and-filler',
-    paras,
-  })
-  return copy
 }
 
 function loadContent(siteInfo, page) {

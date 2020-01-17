@@ -41,12 +41,10 @@ function buildNav(siteInfo, pages, selected = '') {
     ...Object.keys(pages).map(pageName => buildNavItem(pageName, selected))
   )
   nav.addEventListener('click', event => {
-    event.target.parentElement
-      .querySelectorAll('.nav-item')
-      .forEach(navItem => {
+    if (event.target.matches('.nav-item')) {
+      document.querySelectorAll('.nav-item').forEach(navItem => {
         navItem.classList.remove('active')
       })
-    if (event.target.matches('.nav-item')) {
       event.target.classList.add('active')
       loadContent(siteInfo, pages[event.target.dataset.page])
     }

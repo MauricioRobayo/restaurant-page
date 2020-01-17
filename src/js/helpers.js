@@ -28,8 +28,12 @@ function setBaconContent(element, options) {
   fetch(`https://baconipsum.com/api/?${querystring}`)
     .then(response => response.text())
     .then(textContent => {
+      const content = textContent.split('\n')
       // eslint-disable-next-line no-param-reassign
-      element.textContent = textContent
+      element.innerHTML =
+        content.length === 1
+          ? textContent
+          : content.map(p => `<p>${p}</p>`).join('')
     })
 }
 

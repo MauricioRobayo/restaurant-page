@@ -86,9 +86,6 @@ header {
 #hero {
   height: calc(100vh - 45px - 64px);
   background-color: var(--main-background-color);
-  > img {
-    // height: 460px;
-  }
   .headline {
     text-align: center;
   }
@@ -112,6 +109,7 @@ header {
       min-height: 200px;
       border-top-right-radius: 0.25rem;
       border-top-left-radius: 0.25rem;
+      height: auto;
     }
     h3 {
       font-size: 1.25rem;

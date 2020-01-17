@@ -130,7 +130,7 @@ function layout(siteInfo) {
   })
   setBaconContent(copy, {
     type: 'meat-and-filler',
-    paras: 1,
+    paras: 3,
   })
 
   const nav = buildNav(siteInfo, ['Menu', 'Contact'])

@@ -36,7 +36,7 @@ function buildNav(siteInfo, pages, selected = '') {
       .forEach(navItem => {
         navItem.classList.remove('active')
       })
-    if (event.target.classList.contains('nav-item')) {
+    if (event.target.matches('.nav-item')) {
       event.target.classList.add('active')
       // eslint-disable-next-line no-use-before-define
       loadContent(siteInfo, pages[event.target.dataset.page])

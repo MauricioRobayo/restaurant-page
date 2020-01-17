@@ -124,11 +124,15 @@ header {
     }
   }
 }
+#about,
+#contact,
+#menu {
+  min-height: calc(100vh - 45px);
+}
 #about {
   columns: 260px;
   max-width: 600px;
-  margin: 2rem auto;
-  min-height: 100vh;
+  margin: 0 auto;
   p:nth-child(1) {
     margin-top: 0;
   }

@@ -29,7 +29,6 @@ body {
 header {
   overflow: hidden;
   grid-area: 1/1 / -1/-1;
-  align-self: start;
   z-index: 1;
   padding: 1rem 0;
   text-align: center;
@@ -38,7 +37,11 @@ header {
   justify-content: center;
   align-items: center;
   color: var(--main-inverted-color);
-  background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  background: linear-gradient(
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0)
+  );
   @media (min-width: $break-point) {
     flex-direction: row;
   }

@@ -47,9 +47,12 @@ function buildNav(siteInfo, pages, selected = '') {
 
 function loadContent(siteInfo, page) {
   const pageContainer = document.querySelector('#page-container')
-  // document.querySelector('nav').replaceWith(buildNav(siteInfo, menuItems, page))
-  pageContainer.innerHTML = ''
-  pageContainer.append(page)
+  const currentPage = pageContainer.firstChild
+  if (currentPage !== null) {
+    pageContainer.replaceChild(page, currentPage)
+  } else {
+    pageContainer.append(page)
+  }
 }
 
 function buildHeader(siteInfo) {

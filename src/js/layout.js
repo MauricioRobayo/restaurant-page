@@ -25,6 +25,16 @@ function buildNavItem(pageName, selected = '') {
   return navItemContainer
 }
 
+function loadContent(siteInfo, page) {
+  const pageContainer = document.querySelector('#page-container')
+  const currentPage = pageContainer.firstChild
+  if (currentPage !== null) {
+    pageContainer.replaceChild(page, currentPage)
+  } else {
+    pageContainer.append(page)
+  }
+}
+
 function buildNav(siteInfo, pages, selected = '') {
   const nav = createElement('nav')
   nav.append(
@@ -38,21 +48,10 @@ function buildNav(siteInfo, pages, selected = '') {
       })
     if (event.target.matches('.nav-item')) {
       event.target.classList.add('active')
-      // eslint-disable-next-line no-use-before-define
       loadContent(siteInfo, pages[event.target.dataset.page])
     }
   })
   return nav
-}
-
-function loadContent(siteInfo, page) {
-  const pageContainer = document.querySelector('#page-container')
-  const currentPage = pageContainer.firstChild
-  if (currentPage !== null) {
-    pageContainer.replaceChild(page, currentPage)
-  } else {
-    pageContainer.append(page)
-  }
 }
 
 function buildHeader(siteInfo) {

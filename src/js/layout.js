@@ -30,12 +30,8 @@ function buildNavItem(item, selected = '') {
 }
 
 function buildNav(siteInfo, items, selected = '') {
-  const fragment = document.createDocumentFragment()
-  items.forEach(item => {
-    fragment.appendChild(buildNavItem(item, selected))
-  })
   const nav = createElement('nav')
-  nav.appendChild(fragment)
+  nav.append(...items.map(item => buildNavItem(item, selected)))
   nav.addEventListener('click', event => {
     event.target.parentElement
       .querySelectorAll('.nav-item')

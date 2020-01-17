@@ -8,6 +8,7 @@ html {
   @media (min-width: $break-point) {
     font-size: 18px;
   }
+  scroll-behavior: smooth;
 }
 *,
 *:before,
@@ -26,6 +27,10 @@ body {
   min-height: 100vh;
 }
 header {
+  overflow: hidden;
+  grid-area: 1/1 / -1/-1;
+  align-self: start;
+  z-index: 1;
   padding: 1rem 0;
   text-align: center;
   display: flex;
@@ -33,7 +38,7 @@ header {
   justify-content: center;
   align-items: center;
   color: var(--main-inverted-color);
-  background-color: var(--main-background-color);
+  background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
   @media (min-width: $break-point) {
     flex-direction: row;
   }
@@ -59,11 +64,11 @@ header {
   .background-img {
     object-fit: cover;
     width: 100%;
+    height: calc(100vh - 45px - 64px);
     grid-area: 1/1 / -1/-1;
     display: block;
     margin: 0 auto;
     z-index: 0;
-    filter: brightness(0.85);
     background-color: var(--main-background-color);
   }
   .overlay {
@@ -79,9 +84,10 @@ header {
   }
 }
 #hero {
+  height: calc(100vh - 45px - 64px);
   background-color: var(--main-background-color);
-  img {
-    height: 460px;
+  > img {
+    // height: 460px;
   }
   .headline {
     text-align: center;
@@ -177,6 +183,7 @@ footer {
   position: sticky;
   bottom: 0;
   width: 100%;
+  height: 45px;
   z-index: 3;
   font-size: 0.85rem;
 }

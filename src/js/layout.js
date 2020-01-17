@@ -137,8 +137,9 @@ function layout(siteInfo) {
   const pageContainer = createElement('div', {
     id: 'page-container',
   })
-  hero.append(img, headlineWrapper, copy)
-  content.append(buildHeader(siteInfo), hero, nav, pageContainer, buildFooter())
+  pageContainer.append(copy)
+  hero.append(buildHeader(siteInfo), img, headlineWrapper)
+  content.append(hero, nav, pageContainer, buildFooter())
 }
 
 export default layout

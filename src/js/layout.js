@@ -4,28 +4,20 @@ import {
   createElement,
   getGravatarUrl,
 } from './helpers'
-import menu from './menu'
-import contact from './contact'
-import about from './about'
 
-const ABOUT_PARAGRAPHS = 6
-const MENU_ITEMS = 12
-
-const menuItems = ['Menu', 'About', 'Contact']
-
-function buildNavItem(item, selected = '') {
-  const token = item.toLowerCase()
+function buildNavItem(pageName, selected = '') {
+  const token = pageName.toLowerCase()
   const navItemContainer = createElement('div', {
     classes: ['nav-item-wrapper'],
   })
   if (token === selected.toLowerCase()) {
-    navItemContainer.textContent = item
+    navItemContainer.textContent = pageName
   } else {
     const navItem = createElement('a', {
       href: `#${token}`,
       id: `nav-${token}`,
       dataset: { page: token },
-      textContent: item,
+      textContent: pageName.replace(/^\w/, c => c.toUpperCase()),
       classes: ['nav-item'],
     })
     navItemContainer.append(navItem)
@@ -33,9 +25,11 @@ function buildNavItem(item, selected = '') {
   return navItemContainer
 }
 
-function buildNav(siteInfo, items, selected = '') {
+function buildNav(siteInfo, pages, selected = '') {
   const nav = createElement('nav')
-  nav.append(...items.map(item => buildNavItem(item, selected)))
+  nav.append(
+    ...Object.keys(pages).map(pageName => buildNavItem(pageName, selected))
+  )
   nav.addEventListener('click', event => {
     event.target.parentElement
       .querySelectorAll('.nav-item')
@@ -45,7 +39,7 @@ function buildNav(siteInfo, items, selected = '') {
     if (event.target.classList.contains('nav-item')) {
       event.target.classList.add('active')
       // eslint-disable-next-line no-use-before-define
-      loadContent(siteInfo, event.target.dataset.page)
+      loadContent(siteInfo, pages[event.target.dataset.page])
     }
   })
   return nav
@@ -53,21 +47,9 @@ function buildNav(siteInfo, items, selected = '') {
 
 function loadContent(siteInfo, page) {
   const pageContainer = document.querySelector('#page-container')
-  document.querySelector('nav').replaceWith(buildNav(siteInfo, menuItems, page))
+  // document.querySelector('nav').replaceWith(buildNav(siteInfo, menuItems, page))
   pageContainer.innerHTML = ''
-  switch (page) {
-    case 'menu':
-      pageContainer.appendChild(menu(MENU_ITEMS))
-      break
-    case 'contact':
-      pageContainer.appendChild(contact(siteInfo))
-      break
-    case 'about':
-      pageContainer.appendChild(about(ABOUT_PARAGRAPHS))
-      break
-    default:
-      break
-  }
+  pageContainer.append(page)
 }
 
 function buildHeader(siteInfo) {
@@ -100,7 +82,7 @@ function buildFooter() {
   return footer
 }
 
-function layout(siteInfo) {
+function layout(siteInfo, pages) {
   const img = createElement('img', {
     classes: ['background-img'],
   })
@@ -128,7 +110,7 @@ function layout(siteInfo) {
   })
   headlineWrapper.append(headline)
 
-  const nav = buildNav(siteInfo, menuItems)
+  const nav = buildNav(siteInfo, pages)
   const pageContainer = createElement('div', {
     id: 'page-container',
   })

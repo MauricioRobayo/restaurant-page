@@ -128,12 +128,10 @@ function layout(siteInfo) {
   })
   headlineWrapper.append(headline)
 
-  const menuHTML = menu(12)
-  const nav = buildNav(siteInfo, menuItems, menuItems[0])
+  const nav = buildNav(siteInfo, menuItems)
   const pageContainer = createElement('div', {
     id: 'page-container',
   })
-  pageContainer.append(menuHTML)
   hero.append(buildHeader(siteInfo), img, headlineWrapper)
   content.append(hero, nav, pageContainer, buildFooter())
 }

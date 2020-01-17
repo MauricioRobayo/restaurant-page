@@ -8,6 +8,9 @@ import menu from './menu'
 import contact from './contact'
 import about from './about'
 
+const ABOUT_PARAGRAPHS = 6
+const MENU_ITEMS = 12
+
 const menuItems = ['Menu', 'About', 'Contact']
 
 function buildNavItem(item, selected = '') {
@@ -54,13 +57,13 @@ function loadContent(siteInfo, page) {
   pageContainer.innerHTML = ''
   switch (page) {
     case 'menu':
-      pageContainer.appendChild(menu(6))
+      pageContainer.appendChild(menu(MENU_ITEMS))
       break
     case 'contact':
       pageContainer.appendChild(contact(siteInfo))
       break
     case 'about':
-      pageContainer.appendChild(about(3))
+      pageContainer.appendChild(about(ABOUT_PARAGRAPHS))
       break
     default:
       break

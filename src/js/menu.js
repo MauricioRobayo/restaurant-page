@@ -11,10 +11,10 @@ function menu(items) {
     })
 
     const image = createElement('img', {
+      src: getImage({ categories: ['dish', 'meal'] }),
       loading: 'lazy',
       classes: ['background-img'],
     })
-    image.src = getImage({ categories: ['dish', 'meal'] })
 
     const title = createElement('h3', {
       classes: ['overlay'],

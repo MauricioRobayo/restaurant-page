@@ -45,13 +45,11 @@ function setBaconContent(element, options) {
     .then(response => response.text())
     .then(text => {
       const content = text.split('\n').filter(p => p !== '')
-      if (content.length === 1) {
-        element.append(content)
-      } else {
-        element.append(
-          ...content.map(p => createElement('p', { textContent: p }))
-        )
-      }
+      element.append(
+        ...(content.length === 1
+          ? content
+          : content.map(p => createElement('p', { textContent: p })))
+      )
     })
 }
 

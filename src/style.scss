@@ -124,7 +124,14 @@ header {
     }
   }
 }
-
+#about {
+  columns: 260px;
+  max-width: 600px;
+  margin: 0 auto;
+  p:nth-child(1) {
+    margin-top: 0;
+  }
+}
 nav {
   display: flex;
   justify-content: center;

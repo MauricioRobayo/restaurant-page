@@ -20,23 +20,6 @@ function getGravatarUrl({ email, size = 32, type = 'identicon' }) {
   return `https://www.gravatar.com/avatar/${hash}?s=${size}&d=${type}`
 }
 
-function setBaconContent(element, options) {
-  const querystring = new URLSearchParams({
-    format: 'text',
-    ...options,
-  }).toString()
-  fetch(`https://baconipsum.com/api/?${querystring}`)
-    .then(response => response.text())
-    .then(textContent => {
-      const content = textContent.split('\n')
-      // eslint-disable-next-line no-param-reassign
-      element.innerHTML =
-        content.length === 1
-          ? textContent
-          : content.map(p => `<p>${p}</p>`).join('')
-    })
-}
-
 function createElement(type, options = {}) {
   const element = document.createElement(type)
   Object.keys(options).forEach(key => {
@@ -51,6 +34,25 @@ function createElement(type, options = {}) {
     }
   })
   return element
+}
+
+function setBaconContent(element, options) {
+  const querystring = new URLSearchParams({
+    format: 'text',
+    ...options,
+  }).toString()
+  fetch(`https://baconipsum.com/api/?${querystring}`)
+    .then(response => response.text())
+    .then(text => {
+      const content = text.split('\n').filter(p => p !== '')
+      if (content.length === 1) {
+        element.append(content)
+      } else {
+        element.append(
+          ...content.map(p => createElement('p', { textContent: p }))
+        )
+      }
+    })
 }
 
 export { getImage, setBaconContent, createElement, getGravatarUrl }

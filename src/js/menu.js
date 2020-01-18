@@ -1,5 +1,33 @@
 import { getImage, setBaconContent, createElement } from './helpers'
 
+function menuDescription() {
+  const description = createElement('p')
+  setBaconContent(description, {
+    type: 'meat-and-filler',
+    paras: 1,
+  })
+  return description
+}
+
+function menuTitle() {
+  const title = createElement('h3', {
+    classes: ['overlay'],
+  })
+  setBaconContent(title, {
+    type: 'all-meat',
+    sentences: 1,
+  })
+  return title
+}
+
+function menuImg() {
+  return createElement('img', {
+    src: getImage({ categories: ['dish', 'meal'] }),
+    loading: 'lazy',
+    classes: ['background-img'],
+  })
+}
+
 function menu(items) {
   const menuContainer = createElement('div', {
     id: 'menu',
@@ -9,27 +37,7 @@ function menu(items) {
     const container = createElement('div', {
       classes: ['menu-item', 'img-overlay'],
     })
-
-    const image = createElement('img', {
-      src: getImage({ categories: ['dish', 'meal'] }),
-      loading: 'lazy',
-      classes: ['background-img'],
-    })
-
-    const title = createElement('h3', {
-      classes: ['overlay'],
-    })
-    setBaconContent(title, {
-      type: 'all-meat',
-      sentences: 1,
-    })
-
-    const description = createElement('p')
-    setBaconContent(description, {
-      type: 'meat-and-filler',
-      paras: 1,
-    })
-    container.append(image, title, description)
+    container.append(menuImg(), menuTitle(), menuDescription())
     menuContainer.appendChild(container)
   }
   return menuContainer

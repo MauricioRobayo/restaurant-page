@@ -50,6 +50,7 @@ function setBaconContent(element, options) {
           ? content
           : content.map(p => createElement('p', { textContent: p })))
       )
+      return element
     })
 }
 

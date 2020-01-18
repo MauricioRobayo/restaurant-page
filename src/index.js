@@ -17,6 +17,7 @@ function loadContent({ aboutParagraphs, menuItems }) {
         about: aboutPage,
         contact: contactPage,
       })
+      return data
     })
 }
 

@@ -4,47 +4,7 @@ import {
   createElement,
   getGravatarUrl,
 } from './helpers'
-
-function buildNavItem(pageName) {
-  const token = pageName.toLowerCase()
-  const navItemContainer = createElement('div', {
-    classes: ['nav-item-wrapper'],
-  })
-  const navItem = createElement('a', {
-    href: `#${token}`,
-    id: `nav-${token}`,
-    dataset: { page: token },
-    textContent: pageName.replace(/^\w/, c => c.toUpperCase()),
-    classes: ['nav-item'],
-  })
-  navItemContainer.append(navItem)
-  return navItemContainer
-}
-
-function loadContent(siteInfo, page) {
-  const container = document.querySelector('#page-container')
-  const currentPage = container.firstChild
-  if (currentPage !== null) {
-    container.replaceChild(page, currentPage)
-  } else {
-    container.append(page)
-  }
-}
-
-function buildNav(siteInfo, pages) {
-  const nav = createElement('nav')
-  nav.append(...Object.keys(pages).map(pageName => buildNavItem(pageName)))
-  nav.addEventListener('click', event => {
-    if (event.target.matches('.nav-item')) {
-      document.querySelectorAll('.nav-item').forEach(navItem => {
-        navItem.classList.remove('active')
-      })
-      event.target.classList.add('active')
-      loadContent(siteInfo, pages[event.target.dataset.page])
-    }
-  })
-  return nav
-}
+import nav from './nav'
 
 function buildHeader(siteInfo) {
   const header = createElement('header')
@@ -75,6 +35,7 @@ function buildFooter() {
   )
   return footer
 }
+
 function headLineWrapper() {
   const headlineWrapper = createElement('div', {
     classes: ['headline', 'overlay'],
@@ -121,7 +82,7 @@ function layout(siteInfo, pages) {
     .querySelector('#content')
     .append(
       heroSection(siteInfo),
-      buildNav(siteInfo, pages),
+      nav(siteInfo, pages),
       pageContainer(),
       buildFooter()
     )

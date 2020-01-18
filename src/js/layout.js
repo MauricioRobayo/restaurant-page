@@ -22,12 +22,12 @@ function buildNavItem(pageName) {
 }
 
 function loadContent(siteInfo, page) {
-  const pageContainer = document.querySelector('#page-container')
-  const currentPage = pageContainer.firstChild
+  const container = document.querySelector('#page-container')
+  const currentPage = container.firstChild
   if (currentPage !== null) {
-    pageContainer.replaceChild(page, currentPage)
+    container.replaceChild(page, currentPage)
   } else {
-    pageContainer.append(page)
+    container.append(page)
   }
 }
 
@@ -75,24 +75,7 @@ function buildFooter() {
   )
   return footer
 }
-
-function layout(siteInfo, pages) {
-  const img = createElement('img', {
-    classes: ['background-img'],
-  })
-  img.src = getImage({
-    width: 600,
-    height: 460,
-    categories: ['bistro', 'restaurant'],
-  })
-
-  const content = document.querySelector('#content')
-
-  const hero = createElement('div', {
-    id: 'hero',
-    classes: ['img-overlay'],
-  })
-
+function headLineWrapper() {
   const headlineWrapper = createElement('div', {
     classes: ['headline', 'overlay'],
   })
@@ -103,13 +86,45 @@ function layout(siteInfo, pages) {
     'start-with-lorem': 1,
   })
   headlineWrapper.append(headline)
+  return headlineWrapper
+}
 
-  const nav = buildNav(siteInfo, pages)
-  const pageContainer = createElement('div', {
+function heroImg() {
+  const img = createElement('img', {
+    classes: ['background-img'],
+  })
+  img.src = getImage({
+    width: 600,
+    height: 460,
+    categories: ['bistro', 'restaurant'],
+  })
+  return img
+}
+
+function heroSection(siteInfo) {
+  const hero = createElement('div', {
+    id: 'hero',
+    classes: ['img-overlay'],
+  })
+  hero.append(buildHeader(siteInfo), heroImg(), headLineWrapper())
+  return hero
+}
+
+function pageContainer() {
+  return createElement('div', {
     id: 'page-container',
   })
-  hero.append(buildHeader(siteInfo), img, headlineWrapper)
-  content.append(hero, nav, pageContainer, buildFooter())
+}
+
+function layout(siteInfo, pages) {
+  document
+    .querySelector('#content')
+    .append(
+      heroSection(siteInfo),
+      buildNav(siteInfo, pages),
+      pageContainer(),
+      buildFooter()
+    )
 }
 
 export default layout

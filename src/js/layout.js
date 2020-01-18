@@ -5,23 +5,19 @@ import {
   getGravatarUrl,
 } from './helpers'
 
-function buildNavItem(pageName, selected = '') {
+function buildNavItem(pageName) {
   const token = pageName.toLowerCase()
   const navItemContainer = createElement('div', {
     classes: ['nav-item-wrapper'],
   })
-  if (token === selected.toLowerCase()) {
-    navItemContainer.textContent = pageName
-  } else {
-    const navItem = createElement('a', {
-      href: `#${token}`,
-      id: `nav-${token}`,
-      dataset: { page: token },
-      textContent: pageName.replace(/^\w/, c => c.toUpperCase()),
-      classes: ['nav-item'],
-    })
-    navItemContainer.append(navItem)
-  }
+  const navItem = createElement('a', {
+    href: `#${token}`,
+    id: `nav-${token}`,
+    dataset: { page: token },
+    textContent: pageName.replace(/^\w/, c => c.toUpperCase()),
+    classes: ['nav-item'],
+  })
+  navItemContainer.append(navItem)
   return navItemContainer
 }
 
@@ -35,11 +31,9 @@ function loadContent(siteInfo, page) {
   }
 }
 
-function buildNav(siteInfo, pages, selected = '') {
+function buildNav(siteInfo, pages) {
   const nav = createElement('nav')
-  nav.append(
-    ...Object.keys(pages).map(pageName => buildNavItem(pageName, selected))
-  )
+  nav.append(...Object.keys(pages).map(pageName => buildNavItem(pageName)))
   nav.addEventListener('click', event => {
     if (event.target.matches('.nav-item')) {
       document.querySelectorAll('.nav-item').forEach(navItem => {

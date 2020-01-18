@@ -20,18 +20,23 @@ function getGravatarUrl({ email, size = 32, type = 'identicon' }) {
   return `https://www.gravatar.com/avatar/${hash}?s=${size}&d=${type}`
 }
 
+function setElementProperty({ key, value }, element) {
+  if (key === 'classes') {
+    element.classList.add(...value)
+  } else if (key === 'dataset') {
+    Object.keys(value).forEach(data => {
+      element.setAttribute(`data-${data}`, value[data])
+    })
+  } else {
+    // eslint-disable-next-line no-param-reassign
+    element[key] = value
+  }
+}
+
 function createElement(type, options = {}) {
   const element = document.createElement(type)
-  Object.keys(options).forEach(key => {
-    if (key === 'classes') {
-      element.classList.add(...options[key])
-    } else if (key === 'dataset') {
-      Object.keys(options[key]).forEach(data => {
-        element.setAttribute(`data-${data}`, options[key][data])
-      })
-    } else {
-      element[key] = options[key]
-    }
+  Object.entries(options).forEach(([key, value]) => {
+    setElementProperty({ key, value }, element)
   })
   return element
 }

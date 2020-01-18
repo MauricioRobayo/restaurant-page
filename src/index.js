@@ -19,6 +19,13 @@ function loadContent({ aboutParagraphs, menuItems }) {
       })
       return data
     })
+    .catch(e => {
+      document.querySelector('#content').innerHTML = `<p>
+        Somenthing went wrong :(
+      </p> <pre><code>
+        ${e}
+      </code></pre>`
+    })
 }
 
 loadContent({

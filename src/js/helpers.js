@@ -52,6 +52,14 @@ function setBaconContent(element, options) {
       )
       return element
     })
+    .catch(e => {
+      // eslint-disable-next-line no-param-reassign
+      element.innerHTML = `<p>
+      Somenthing went wrong :(
+    </p> <pre><code>
+      ${e}
+    </code></pre>`
+    })
 }
 
 export { getImage, setBaconContent, createElement, getGravatarUrl }

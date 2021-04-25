@@ -21,7 +21,7 @@
   },
   "homepage": "https://mauriciorobayo.github.io/simple-restaurant-page",
   "devDependencies": {
-    "css-loader": "^3.2.0",
+    "css-loader": "^5.2.4",
     "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.5.0",
